@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigy InfoTech - Task 01 Showcase | Shoeb Tahsildar</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #070a12;
+            --bg-card: rgba(14, 20, 36, 0.85);
+            --bg-card-border: rgba(56, 189, 248, 0.2);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-green: #10b981;
+            --accent-emerald: #059669;
+            --accent-purple: #8b5cf6;
+            --accent-yellow: #f59e0b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #030712;
+            font-family: var(--font-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+        }
+
+        /* Top Action Bar for User */
+        .action-toolbar {
+            width: 100%;
+            max-width: 1180px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            padding: 12px 20px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .action-toolbar .title-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .badge-pill {
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .toolbar-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            color: #030712;
+            box-shadow: 0 4px 14px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #f1f5f9;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        /* =====================================================================
+           POSTER CONTAINER (Matches Friend's 1080px Square / High-Impact Style)
+           ===================================================================== */
+        .poster-canvas {
+            width: 100%;
+            max-width: 1140px;
+            background: #090e1a radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15) 0%, rgba(6, 11, 25, 0.98) 75%);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 24px;
+            padding: 34px 34px 28px 34px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(14, 165, 233, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient background grid lines */
+        .poster-canvas::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        /* Circuit & Glowing Corner Orbs */
+        .poster-glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 250px;
+            height: 250px;
+            background: rgba(0, 242, 254, 0.12);
+            top: -50px;
+            left: -50px;
+        }
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(139, 92, 246, 0.1);
+            bottom: -80px;
+            right: -60px;
+        }
+
+        .poster-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* -------------------------------------------------------------
+           HEADER: Title & Prodigy InfoTech Task Badge
+           ------------------------------------------------------------- */
+        .poster-header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-title-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-shield-icon {
+            font-size: 2.2rem;
+            color: #10b981;
+            filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.6));
+            background: rgba(16, 185, 129, 0.12);
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }
+
+        .header-main-title {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .header-main-title .highlight-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+        }
+
+        .header-subtitle-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 650px;
+            margin-top: 4px;
+        }
+
+        .bar-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+        }
+
+        .company-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #f8fafc;
+            text-transform: uppercase;
+        }
+
+        .company-pill .trophy-icon {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+        }
+
+        .task-tag {
+            color: #38bdf8;
+            font-weight: 900;
+        }
+
+        /* -------------------------------------------------------------
+           MAIN GRID: Browser Preview (Left) + Feature/Stack Cards (Right)
+           ------------------------------------------------------------- */
+        .poster-main-grid {
+            display: grid;
+            grid-template-columns: 1.55fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        /* BROWSER FRAME */
+        .browser-mockup {
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(14, 165, 233, 0.08);
+        }
+
+        .browser-topbar {
+            background: #1e293b;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+        .dot-close { background: #ef4444; }
+        .dot-min { background: #f59e0b; }
+        .dot-max { background: #10b981; }
+
+        .browser-tabs {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .browser-tab {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.76rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: none;
+        }
+
+        .browser-tab-close {
+            color: #94a3b8;
+            font-size: 0.7rem;
+        }
+
+        .tab-add {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-left: 4px;
+        }
+
+        .browser-nav-row {
+            background: #131c31;
+            padding: 7px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .browser-nav-arrows {
+            display: flex;
+            gap: 8px;
+            color: #64748b;
+            font-size: 0.78rem;
+        }
+
+        .browser-address-bar {
+            flex: 1;
+            background: #0b1120;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .address-lock {
+            color: #10b981;
+            font-size: 0.72rem;
+        }
+
+        /* Mockup Web Viewport */
+        .browser-viewport {
+            background: #090e17;
+            padding: 16px 20px 24px 20px;
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            min-height: 380px;
+        }
+
+        /* Simulated Sticky Navbar Inside Mockup */
+        .mockup-navbar {
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .mock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+
+        .mock-brand i {
+            color: #38bdf8;
+        }
+
+        .mock-brand span span {
+            color: #818cf8;
+        }
+
+        .mock-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mock-link {
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #94a3b8;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mock-link.active {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .mock-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mock-theme-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: #f59e0b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        /* Mockup Hero Card */
+        .mock-hero-box {
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 70%), rgba(17, 24, 39, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mock-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 999px;
+            width: fit-content;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .mock-pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .mock-hero-title {
+            font-family: var(--font-head);
+            font-size: 1.7rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .mock-hero-title span {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mock-hero-sub {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            max-width: 420px;
+        }
+
+        /* Mockup Info Card Inside Viewport */
+        .mock-user-card {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mock-user-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .mock-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .mock-dev-name {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .mock-dev-role {
+            font-size: 0.72rem;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .mock-scroll-badge {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            color: #c084fc;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* -------------------------------------------------------------
+           RIGHT COLUMN: FEATURES CARD + STACK CARD
+           ------------------------------------------------------------- */
+        .poster-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 16px;
+            padding: 20px 22px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card-head-icon {
+            color: #10b981;
+            font-size: 1.25rem;
+        }
+
+        .card-head-title {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.84rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .feature-item i.fa-check {
+            color: #10b981;
+            font-size: 0.85rem;
+            filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.6));
+        }
+
+        /* TECH STACK CARD */
+        .stack-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 16px;
+            padding: 18px 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .stack-head-icon {
+            color: #38bdf8;
+            font-size: 1.2rem;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stack-badge {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .stack-badge i {
+            font-size: 1.3rem;
+        }
+
+        .icon-html { color: #e44d26; }
+        .icon-css { color: #264de4; }
+        .icon-js { color: #f7df1e; }
+        .icon-dom { color: #a855f7; }
+
+        .stack-badge-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stack-name {
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: #f8fafc;
+        }
+
+        .stack-role {
+            font-size: 0.66rem;
+            color: #94a3b8;
+        }
+
+        /* -------------------------------------------------------------
+           BOTTOM ARCHITECTURE / FLOW SECTION
+           ------------------------------------------------------------- */
+        .poster-flow-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 2px;
+        }
+
+        .flow-header-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .flow-title {
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #38bdf8;
+            white-space: nowrap;
+        }
+
+        .flow-cards-track {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .flow-card-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .flow-box {
+            flex: 1;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-radius: 10px;
+            padding: 10px 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-height: 106px;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .flow-box:hover {
+            border-color: rgba(56, 189, 248, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .flow-icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            color: #38bdf8;
+            margin-bottom: 2px;
+        }
+
+        .flow-box.accent-green .flow-icon-circle {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #10b981;
+        }
+
+        .flow-box.accent-purple .flow-icon-circle {
+            background: rgba(168, 85, 247, 0.12);
+            border-color: rgba(168, 85, 247, 0.3);
+            color: #a855f7;
+        }
+
+        .flow-box.accent-amber .flow-icon-circle {
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
+        }
+
+        .flow-step-name {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #f1f5f9;
+            line-height: 1.15;
+        }
+
+        .flow-step-desc {
+            font-size: 0.62rem;
+            color: #94a3b8;
+            line-height: 1.2;
+        }
+
+        .flow-arrow {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Bottom Footer in Poster */
+        .poster-footer {
+            margin-top: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.74rem;
+            color: #64748b;
+        }
+
+        .footer-dev {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #94a3b8;
+        }
+
+        .footer-dev strong {
+            color: #f8fafc;
+        }
+
+        .footer-tags {
+            display: flex;
+            gap: 12px;
+            font-family: var(--font-mono);
+            color: #38bdf8;
+            font-size: 0.7rem;
+        }
+
+        /* -------------------------------------------------------------
+           MODAL / CAPTION COPY DRAWER
+           ------------------------------------------------------------- */
+        .caption-section {
+            width: 100%;
+            max-width: 1140px;
+            margin-top: 24px;
+            background: #0d1322;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .caption-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .caption-title {
+            font-family: var(--font-head);
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f8fafc;
+        }
+
+        .caption-box {
+            background: #070a12;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 18px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            white-space: pre-wrap;
+            position: relative;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: #030712;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 9999;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .poster-main-grid {
+                grid-template-columns: 1fr;
+            }
+            .flow-cards-track {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .flow-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Action Toolbar -->
+    <header class="action-toolbar">
+        <div class="title-info">
+            <span class="badge-pill"><i class="fa-solid fa-award"></i> Task 01 Completed</span>
+            <span><strong>Shoeb Tahsildar</strong> &mdash; Prodigy InfoTech Internship Showcase</span>
+        </div>
+        <div class="toolbar-buttons">
+            <a href="index.html" class="btn-action btn-secondary" target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live App
+            </a>
+            <button class="btn-action btn-primary" onclick="copyLinkedInCaption()">
+                <i class="fa-brands fa-linkedin"></i> Copy Post Caption
+            </button>
+            <button class="btn-action btn-secondary" onclick="window.print()">
+                <i class="fa-solid fa-camera"></i> Save / Print Image
+            </button>
+        </div>
+    </header>
+
+    <!-- =========================================================================
+         THE SHOWCASE POSTER (Same Visual Standard as Friend's Infographic)
+         ========================================================================= -->
+    <main class="poster-canvas" id="posterCanvas">
+        <div class="poster-glow-orb orb-1"></div>
+        <div class="poster-glow-orb orb-2"></div>
+
+        <div class="poster-content">
+            <!-- HEADER -->
+            <header class="poster-header">
+                <div class="header-title-row">
+                    <div class="header-shield-icon">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <h1 class="header-main-title">
+                        RESPONSIVE <span class="highlight-accent">INTERACTIVE NAVIGATION</span>
+                    </h1>
+                </div>
+                <div class="header-subtitle-bar">
+                    <div class="bar-line"></div>
+                    <div class="company-pill">
+                        <i class="fa-solid fa-trophy trophy-icon"></i>
+                        <span>PRODIGY INFOTECH &mdash; <span class="task-tag">TASK 01</span></span>
+                    </div>
+                    <div class="bar-line"></div>
+                </div>
+            </header>
+
+            <!-- MAIN GRID: BROWSER PREVIEW (LEFT) + METRICS & STACK (RIGHT) -->
+            <div class="poster-main-grid">
+                
+                <!-- BROWSER MOCKUP -->
+                <div class="browser-mockup">
+                    <div class="browser-topbar">
+                        <div class="window-dots">
+                            <span class="dot dot-close"></span>
+                            <span class="dot dot-min"></span>
+                            <span class="dot dot-max"></span>
+                        </div>
+                        <div class="browser-tabs">
+                            <div class="browser-tab">
+                                <i class="fa-solid fa-compass"></i>
+                                <span>Task 01 - NavFlow</span>
+                                <span class="browser-tab-close">&times;</span>
+                            </div>
+                            <span class="tab-add"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="browser-nav-row">
+                        <div class="browser-nav-arrows">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </div>
+                        <div class="browser-address-bar">
+                            <i class="fa-solid fa-shield-halved address-lock"></i>
+                            <span>http://localhost:5500/index.html</span>
+                        </div>
+                    </div>
+
+                    <!-- Inner Page Preview -->
+                    <div class="browser-viewport">
+                        <!-- Sticky Navigation Bar Preview -->
+                        <div class="mockup-navbar">
+                            <div class="mock-brand">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                                <span>Nav<span>Flow</span></span>
+                            </div>
+                            <div class="mock-links">
+                                <span class="mock-link active"><i class="fa-solid fa-house"></i> Home</span>
+                                <span class="mock-link"><i class="fa-solid fa-user-astronaut"></i> About</span>
+                                <span class="mock-link"><i class="fa-solid fa-layer-group"></i> Services</span>
+                                <span class="mock-link"><i class="fa-solid fa-cubes"></i> Features</span>
+                                <span class="mock-link"><i class="fa-solid fa-envelope"></i> Contact</span>
+                            </div>
+                            <div class="mock-nav-actions">
+                                <div class="mock-theme-btn"><i class="fa-solid fa-moon"></i></div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Content Preview -->
+                        <div class="mock-hero-box">
+                            <div class="mock-status-pill">
+                                <span class="mock-pulse-dot"></span>
+                                <span>Dynamic Scroll Engine &bull; Active</span>
+                            </div>
+                            <h2 class="mock-hero-title">
+                                Crafting Seamless <br><span>Digital Journeys.</span>
+                            </h2>
+                            <p class="mock-hero-sub">
+                                An interactive, scroll-adaptive navigation architecture featuring smooth 60FPS physics, glassmorphic translucency, and viewport detection.
+                            </p>
+                        </div>
+
+                        <!-- User / Intern Identity Card inside Preview -->
+                        <div class="mock-user-card">
+                            <div class="mock-user-meta">
+                                <span class="mock-label">DEVELOPER & INTERN</span>
+                                <div class="mock-dev-name">Shoeb Tahsildar</div>
+                                <div class="mock-dev-role">Web Development Intern @ Prodigy InfoTech</div>
+                            </div>
+                            <div class="mock-scroll-badge">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Scrollspy Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDEBAR: KEY FEATURES & TECH STACK -->
+                <div class="poster-sidebar">
+                    <!-- FEATURES CARD -->
+                    <div class="feature-card">
+                        <div class="card-head">
+                            <i class="fa-solid fa-shield-halved card-head-icon"></i>
+                            <h2 class="card-head-title">CORE FEATURES</h2>
+                        </div>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Fixed Sticky Nav Across All Pages</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Scroll-Driven Color & Style Shift</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Real-time Scroll Progress Bar</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Hover Micro-Animations & Glow Pills</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Multi-Level Interactive Dropdown</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>IntersectionObserver Scrollspy</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Dark / Light Theme Switcher</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>100% Responsive Mobile Drawer Menu</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- TECH STACK CARD -->
+                    <div class="stack-card">
+                        <div class="card-head">
+                            <i class="fa-solid fa-cubes-stacked stack-head-icon"></i>
+                            <h2 class="card-head-title">TECH STACK</h2>
+                        </div>
+                        <div class="stack-grid">
+                            <div class="stack-badge">
+                                <i class="fa-brands fa-html5 icon-html"></i>
+                                <div class="stack-badge-meta">
+                                    <span class="stack-name">HTML5</span>
+                                    <span class="stack-role">Semantic Core</span>
+                                </div>
+                            </div>
+                            <div class="stack-badge">
+                                <i class="fa-brands fa-css3-alt icon-css"></i>
+                                <div class="stack-badge-meta">
+                                    <span class="stack-name">CSS3</span>
+                                    <span class="stack-role">Glass & Flexbox</span>
+                                </div>
+                            </div>
+                            <div class="stack-badge">
+                                <i class="fa-brands fa-js icon-js"></i>
+                                <div class="stack-badge-meta">
+                                    <span class="stack-name">JavaScript</span>
+                                    <span class="stack-role">ES6+ & Events</span>
+                                </div>
+                            </div>
+                            <div class="stack-badge">
+                                <i class="fa-solid fa-crosshairs icon-dom"></i>
+                                <div class="stack-badge-meta">
+                                    <span class="stack-name">DOM APIs</span>
+                                    <span class="stack-role">Scrollspy & Storage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM SECTION: NAVIGATION INTERACTION FLOW -->
+            <section class="poster-flow-section">
+                <div class="flow-header-divider">
+                    <div class="bar-line"></div>
+                    <h3 class="flow-title">NAVIGATION INTERACTION ARCHITECTURE</h3>
+                    <div class="bar-line"></div>
+                </div>
+
+                <div class="flow-cards-track">
+                    <!-- Step 1 -->
+                    <div class="flow-box">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-user"></i></div>
+                        <span class="flow-step-name">USER ACTION</span>
+                        <span class="flow-step-desc">Scrolls, hovers, or toggles theme</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 2 -->
+                    <div class="flow-box">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-bolt-lightning"></i></div>
+                        <span class="flow-step-name">EVENT LISTENERS</span>
+                        <span class="flow-step-desc">Window scroll & hover triggers</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 3 -->
+                    <div class="flow-box accent-purple">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-code"></i></div>
+                        <span class="flow-step-name">JS CONTROLLER</span>
+                        <span class="flow-step-desc">IntersectionObserver tracks view</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 4 -->
+                    <div class="flow-box accent-green">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-layer-group"></i></div>
+                        <span class="flow-step-name">DYNAMIC DOM</span>
+                        <span class="flow-step-desc">Toggles .scrolled & .active states</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 5 -->
+                    <div class="flow-box accent-amber">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <span class="flow-step-name">CSS3 ENGINE</span>
+                        <span class="flow-step-desc">Backdrop-blur & 60FPS ease</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 6 -->
+                    <div class="flow-box">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-database"></i></div>
+                        <span class="flow-step-name">LOCALSTORAGE</span>
+                        <span class="flow-step-desc">Persists Dark/Light mode state</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 7 -->
+                    <div class="flow-box accent-green">
+                        <div class="flow-icon-circle"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <span class="flow-step-name">FLUID UI / UX</span>
+                        <span class="flow-step-desc">Adaptive layout on all devices</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POSTER FOOTER -->
+            <footer class="poster-footer">
+                <div class="footer-dev">
+                    <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
+                    <span>Developed by <strong>Shoeb Tahsildar</strong> &bull; Prodigy InfoTech Web Development Internship</span>
+                </div>
+                <div class="footer-tags">
+                    <span>#ProdigyInfoTech</span>
+                    <span>#WebDevelopment</span>
+                    <span>#Task01</span>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- =========================================================================
+         READY-TO-USE LINKEDIN POST CAPTION SECTION
+         ========================================================================= -->
+    <section class="caption-section">
+        <div class="caption-head">
+            <h2 class="caption-title">
+                <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i>
+                LinkedIn Post Caption & Information (Ready to Copy)
+            </h2>
+            <button class="btn-action btn-primary" onclick="copyLinkedInCaption()">
+                <i class="fa-solid fa-copy"></i> Copy Post Text
+            </button>
+        </div>
+        <div class="caption-box" id="captionText">I'm happy to share that I have successfully completed Task 01 as part of my Web Development Internship at Prodigy InfoTech! 🚀
+
+For this task, I designed and developed a modern, responsive, and interactive Navigation Menu system featuring:
+
+🔹 Fixed Navigation Bar (`position: fixed`) visible seamlessly across all pages
+🔹 Scroll-Driven Style & Color Change — Dynamic elevation, compact height, and glassmorphic backdrop-blur
+🔹 Real-Time Reading Progress Bar tracking user scroll depth
+🔹 Interactive Hover Micro-Animations with animated glow pill highlights
+🔹 Multi-Level Interactive Dropdown navigation menu
+🔹 Scrollspy Viewport Section Detection powered by the `IntersectionObserver` API
+🔹 Dark & Light Mode Theme Switcher with user preference persistence via `localStorage`
+🔹 100% Responsive Design with an animated hamburger drawer navigation for mobile devices
+
+This project gave me valuable hands-on experience in modern UI/UX engineering, mastering CSS transitions, DOM event optimization, and building accessible, performance-driven web components.
+
+I'm looking forward to applying these concepts to the upcoming tasks and continuing to strengthen my frontend and full-stack development skills! ✨
+
+Thank you Prodigy InfoTech for this great learning opportunity.
+
+#ProdigyInfoTech #WebDevelopment #FrontendDevelopment #JavaScript #CSS3 #HTML5 #UIUXDesign #WebDesign #Internship #CodingJourney #DeveloperCommunity</div>
+    </section>
+
+    <!-- Copy Toast -->
+    <div class="toast" id="copyToast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>LinkedIn caption copied to clipboard!</span>
+    </div>
+
+    <script>
+        function copyLinkedInCaption() {
+            const text = document.getElementById('captionText').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                alert('Caption ready! You can manually copy the text in the box below.');
+            });
+        }
+    </script>
+</body>
+</html>
