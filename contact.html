@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Interactive Navigation Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scroll-progress-container" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Fixed Navbar (Identical on all pages) -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="navLogo">
+                <span class="logo-icon"><i class="fa-solid fa-compass-drafting"></i></span>
+                <span class="logo-text">Nav<span class="gradient-text">Flow</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#projects" class="nav-link">
+                            <i class="fa-solid fa-shapes"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+                <a href="index.html" class="nav-cta-btn">
+                    <span>Back to Home</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section" style="min-height: 80vh;">
+            <div class="container hero-content">
+                <div class="badge-pill"><span>Direct Inquiries</span></div>
+                <h1 class="hero-title">Contact <span class="gradient-text">Shoeb Tahsildar</span></h1>
+                <p class="hero-subtitle">
+                    This standalone page confirms the navigation menu remains permanently fixed and visible across every page of your site.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="https://github.com/shoeb2317" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fa-brands fa-github"></i> Visit GitHub Profile
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-left"></i> Return to Main Page
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 <strong>Shoeb Tahsildar</strong> &bull; Web Development Internship Project.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Navigation Menu with scroll effects, hover animations, responsive design and theme toggle.">
+    <title>Interactive Navigation Menu | Internship Project</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Interactive Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <a href="#home" class="nav-logo" id="navLogo">
+                <span class="logo-icon"><i class="fa-solid fa-compass-drafting"></i></span>
+                <span class="logo-text">Nav<span class="gradient-text">Flow</span></span>
+            </a>
+
+            <!-- Desktop & Mobile Navigation Links -->
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active" id="link-home">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" id="link-about">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#services" class="nav-link" id="link-services">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Services</span>
+                            <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#services" class="dropdown-item"><i class="fa-solid fa-code"></i> Frontend Engineering</a></li>
+                            <li><a href="#services" class="dropdown-item"><i class="fa-solid fa-wand-magic-sparkles"></i> UI/UX Interactive Design</a></li>
+                            <li><a href="#services" class="dropdown-item"><i class="fa-solid fa-mobile-screen-button"></i> Responsive Web Apps</a></li>
+                            <li><a href="#services" class="dropdown-item"><i class="fa-solid fa-bolt"></i> Performance Optimization</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link" id="link-projects">
+                            <i class="fa-solid fa-shapes"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" id="link-contact">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Extra Pages Demo (Cross-page consistency check) -->
+                <div class="nav-extra-pages">
+                    <span class="extra-label">Multi-Page:</span>
+                    <a href="about.html" class="sub-page-link">About Page</a>
+                    <a href="contact.html" class="sub-page-link">Contact Page</a>
+                </div>
+            </nav>
+
+            <!-- Navbar Action Controls -->
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="nav-cta-btn">
+                    <span>Get Started</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Background Decor Elements (Blue Gradient Square & Circle with Gradient) -->
+    <div class="ambient-shapes-container" aria-hidden="true">
+        <div class="floating-shape gradient-circle circle-1"></div>
+        <div class="floating-shape gradient-square square-1"></div>
+        <div class="floating-shape gradient-circle circle-2"></div>
+        <div class="floating-shape gradient-square square-2"></div>
+        <div class="floating-shape gradient-circle circle-3"></div>
+    </div>
+
+    <!-- MAIN CONTENT SECTIONS -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section hero-section">
+            <div class="container hero-content">
+                <div class="badge-pill">
+                    <span class="badge-dot"></span>
+                    <span>Frontend Internship Assessment</span>
+                </div>
+                <h1 class="hero-title">
+                    Interactive <span class="gradient-text">Navigation Menu</span> Experience
+                </h1>
+                <p class="hero-subtitle">
+                    A responsive, accessible fixed navigation bar featuring dynamic scroll detection,
+                    interactive hover effects, active scrollspy tracking, and dark/light mode customization.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fa-solid fa-compass"></i> Explore Features
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fa-solid fa-laptop-code"></i> View Projects
+                    </a>
+                </div>
+
+                <!-- Showcase Metrics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-anchor"></i></div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Fixed & Sticky Visibility</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-palette"></i></div>
+                        <div class="stat-number">Dual Mode</div>
+                        <div class="stat-label">Scroll Color Adaptation</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="stat-number">Micro-FX</div>
+                        <div class="stat-label">Fluid Hover Transitions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <div class="stat-number">Universal</div>
+                        <div class="stat-label">Mobile Responsive Drawer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-circle-info"></i> Project Overview</span>
+                    <h2 class="section-title">How It Meets <span class="gradient-text">All Requirements</span></h2>
+                    <p class="section-desc">Designed with clean HTML5 semantic architecture, CSS3 modern variables, and modular ES6 JavaScript.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+                        <h3>Scroll Color Shift</h3>
+                        <p>When scrolling past the threshold, JavaScript triggers the <code>.scrolled</code> class, modifying background tint, backdrop blur, elevation shadow, and padding dynamically.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-hand-pointer"></i></div>
+                        <h3>Hover Interactions</h3>
+                        <p>Each navigation link highlights with a smooth background pill, subtle scale transform, and vibrant color shift on hover with keyboard accessibility.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                        <h3>Smart Active Scrollspy</h3>
+                        <p>Uses modern <code>IntersectionObserver</code> to detect which section of the page is currently in view and automatically updates the active menu link.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-sun-plant-wilt"></i></div>
+                        <h3>Theme Switcher</h3>
+                        <p>Seamlessly toggle between a sleek cyberpunk dark mode and a crisp clean light mode, with preferences saved to <code>localStorage</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section alternate-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-sparkles"></i> Capabilities</span>
+                    <h2 class="section-title">Interactive <span class="gradient-text">Components</span></h2>
+                    <p class="section-desc">Explore the design elements included in this internship project demonstration.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="interactive-card">
+                        <div class="card-gradient-shape square-decor"></div>
+                        <div class="card-body">
+                            <span class="card-pill">Component 01</span>
+                            <h3>Glassmorphic Navigation Bar</h3>
+                            <p>Utilizes CSS <code>backdrop-filter: blur(16px)</code> with high-contrast borders and translucent color blends for a modern UI aesthetic.</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card">
+                        <div class="card-gradient-shape circle-decor"></div>
+                        <div class="card-body">
+                            <span class="card-pill">Component 02</span>
+                            <h3>Animated Hamburger Button</h3>
+                            <p>Smooth SVG/CSS transformation turns three horizontal bars into an interactive close (X) icon when toggled on mobile viewports.</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card">
+                        <div class="card-gradient-shape square-decor"></div>
+                        <div class="card-body">
+                            <span class="card-pill">Component 03</span>
+                            <h3>Reading Progress Bar</h3>
+                            <p>A precision scroll-tracking progress bar integrated into the header gives users an immediate visual cue of page scroll depth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-folder-open"></i> Portfolio</span>
+                    <h2 class="section-title">Internship <span class="gradient-text">Showcase</span></h2>
+                    <p class="section-desc">Interactive portfolio sample cards highlighting modern front-end layouts.</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <article class="portfolio-card">
+                        <div class="portfolio-preview gradient-bg-1">
+                            <i class="fa-solid fa-bars-staggered preview-icon"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="tag">Task Submission</span>
+                            <h3>Dynamic Navigation System</h3>
+                            <p>Fixed top navbar with scroll styling, animated link highlights, and responsive mobile drawer.</p>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-preview gradient-bg-2">
+                            <i class="fa-solid fa-moon preview-icon"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="tag">Bonus Feature</span>
+                            <h3>Persistent Theme Switcher</h3>
+                            <p>Light and Dark themes powered by CSS variables with smooth property transitions.</p>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-preview gradient-bg-3">
+                            <i class="fa-solid fa-mobile-screen preview-icon"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="tag">Responsiveness</span>
+                            <h3>Cross-Device Compatibility</h3>
+                            <p>Fluid layout optimized for mobile screens, tablets, laptops, and ultra-wide desktop monitors.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section alternate-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-envelope"></i> Get In Touch</span>
+                    <h2 class="section-title">Connect with <span class="gradient-text">Shoeb Tahsildar</span></h2>
+                    <p class="section-desc">Have questions about this internship project or wish to connect? Leave a message below.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-card">
+                        <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! Your message has been received.');">
+                            <div class="form-group">
+                                <label for="userName">Full Name</label>
+                                <input type="text" id="userName" placeholder="e.g. John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Email Address</label>
+                                <input type="email" id="userEmail" placeholder="e.g. john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userMessage">Message</label>
+                                <textarea id="userMessage" rows="4" placeholder="Write your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="contact-details">
+                        <div class="detail-box">
+                            <i class="fa-solid fa-user-check"></i>
+                            <div>
+                                <h4>Developer</h4>
+                                <p>Shoeb Tahsildar</p>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <i class="fa-brands fa-github"></i>
+                            <div>
+                                <h4>GitHub Profile</h4>
+                                <a href="https://github.com/shoeb2317" target="_blank" rel="noopener noreferrer">github.com/shoeb2317</a>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <i class="fa-solid fa-code-branch"></i>
+                            <div>
+                                <h4>Task Name</h4>
+                                <p>Interactive Navigation Menu with Scroll & Hover FX</p>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <i class="fa-solid fa-file-code"></i>
+                            <div>
+                                <h4>Multi-Page Testing</h4>
+                                <p>
+                                    <a href="about.html" class="text-link">Open About Page</a> &bull; 
+                                    <a href="contact.html" class="text-link">Open Contact Page</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 <strong>Shoeb Tahsildar</strong> &bull; Web Development Internship Project.</p>
+            <p class="footer-sub">Interactive Navigation Menu Built with HTML5, CSS3 & JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
